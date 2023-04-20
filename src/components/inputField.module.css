@@ -1,0 +1,17 @@
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: 1rem;
+}
+
+.input label{
+    font-size: small;
+}
+
+.input input{
+    background-color: transparent;
+    border: 1px solid rgb(115, 119, 152);
+    padding: 10px 5px;
+    border-radius: 5px;
+}

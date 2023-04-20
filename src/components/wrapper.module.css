@@ -1,0 +1,32 @@
+.wrapperBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 320px;
+    padding: 2rem 1rem;
+    background: #111827;
+    border-radius: 10px;
+}
+
+.heading{
+    text-align: center;
+    line-height: 10px;
+    margin-bottom: 2rem;
+}
+
+.wrapperBox p {
+    text-align: center;
+    font-size: small;
+    color: rgb(209, 209, 226);
+}
+
+.wrapperBox button{
+    background-color: rgb(0, 157, 255);
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 1rem;
+    padding: 10px;
+    font-weight: bold;
+}
