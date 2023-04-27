@@ -1,17 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputField } from "../components/InputField";
 import { Wrapper } from "../components/Wrapper";
 import { signinSchema } from "../validation/signinValidation";
+import toast from "react-hot-toast";
+import axios from "../services/axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Signin = () => {
+
+  const isAuth = useAuth();
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (isAuth) navigate("/chat");
+  }, [isAuth]);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const isValid = await signinSchema.validate({ email, password });
-    isValid ? alert("success") : alert("failed");
+    try {
+      await signinSchema.validate({ email, password });
+      const { data, status } = await axios.post("/api/auth/signin", {
+        email,
+        password,
+      });
+      if (status === 200) {
+        toast.success("Login Success");
+        console.log(data);
+        localStorage.setItem("token", data.accessToken);
+        navigate("/chat");
+      }
+    } catch (error: any) {
+      toast.error(error.message);
+    }
   };
 
   const props = {

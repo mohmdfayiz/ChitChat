@@ -1,0 +1,29 @@
+.messageInput{
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-image: linear-gradient(180deg, transparent,#0d0d27);
+}
+
+.messageInput span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    width: 600px;
+}
+
+.sendBtn{
+    border: 2px solid rgb(0, 157, 255);
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.sendBtn:hover{
+    background-color:  rgb(0, 157, 255);
+    transition: .4s;
+}

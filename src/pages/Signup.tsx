@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputField } from "../components/InputField";
 import { Wrapper } from "../components/Wrapper";
 import { signupSchema } from "../validation/signupValidation";
+import toast from "react-hot-toast";
+import axios from "../services/axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Signup = () => {
+  const isAuth = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuth) navigate("/chat");
+  }, [isAuth]);
+
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,10 +30,17 @@ const Signup = () => {
         confirmPassword,
       });
 
-      isValid && alert("success");
-
-    } catch (error : any) {
-      alert(error.message);
+      const { data, status } = await axios.post("/api/auth/signup", {
+        userName,
+        email,
+        password,
+      });
+      if (status === 201) {
+        toast.success("Sign up sucess🎉");
+        navigate("/");
+      }
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
 
