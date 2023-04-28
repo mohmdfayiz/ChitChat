@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 const Signup = () => {
+
   const isAuth = useAuth();
   const navigate = useNavigate();
 
@@ -35,6 +36,7 @@ const Signup = () => {
         email,
         password,
       });
+      
       if (status === 201) {
         toast.success("Sign up sucess🎉");
         navigate("/");

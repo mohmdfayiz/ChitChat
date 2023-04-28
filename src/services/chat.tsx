@@ -5,11 +5,11 @@ interface Message {
   message: string;
 }
 
-export const sendMessage = async (message: Message, token:string) => {
+export const sendMessage = async (data: Message, token:string) => {
   const { status } = await axios.post(
     "/api/chat/message",
-    { message },
-    { headers: { Authorization: `Bearer ${token}` } }
+    data,
+    { headers: { Authorization: `Bearer ${token}` } } 
   );
   return Promise.resolve({ status });
 };

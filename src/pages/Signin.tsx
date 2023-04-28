@@ -8,10 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 const Signin = () => {
-
   const isAuth = useAuth();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (isAuth) navigate("/chat");
   }, [isAuth]);
@@ -30,7 +29,6 @@ const Signin = () => {
       });
       if (status === 200) {
         toast.success("Login Success");
-        console.log(data);
         localStorage.setItem("token", data.accessToken);
         navigate("/chat");
       }

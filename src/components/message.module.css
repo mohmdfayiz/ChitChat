@@ -48,14 +48,30 @@
 
 .left .message{
     background-color: rgb(47, 73, 129);
-    padding: 8px;
     border-radius: 5px;
+    min-width: 80px;
+    overflow: hidden;
 }
 
 .right .message{
     background-color: rgb(14, 104, 177);
-    padding: 8px;
     border-radius: 5px;
+    padding: 5px ;
+    min-width: 80px;
+    overflow: hidden;
+}
+
+.message span{
+    padding: 5px;
+}
+
+.userName {
+    background-color:rgb(38, 61, 114);
+    margin-bottom: 2px;
+    padding: 2px 0px;
+    color: rgb(76, 164, 237);
+    font-size: small;
+    font-weight: 600;
 }
 
 .time{

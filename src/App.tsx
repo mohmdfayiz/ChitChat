@@ -4,8 +4,24 @@ import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
 import Page404 from "./pages/Page404";
 import { Toaster } from "react-hot-toast";
+// import { refreshToken, logout } from "./services/refreshToken";
+// import { useEffect } from "react";
 
 const App = () => {
+
+  // useEffect(() => {
+  //   function newToken() {
+  //     refreshToken()
+  //       .then((res) => {
+  //         localStorage.setItem("token", res.token);
+  //       })
+  //       .catch(() => {
+  //         logout();
+  //       });
+  //   }
+  //   setInterval(newToken, 1 * 60000);
+  // }, []);
+
   return (
     <Router>
       <Toaster position="top-right" />
